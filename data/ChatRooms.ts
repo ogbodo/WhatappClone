@@ -146,6 +146,12 @@ export default [
         imageUri:
           "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/7.png",
       },
+      {
+        id: "u10",
+        name: "Izuking",
+        imageUri:
+          "https://notjustdev-dummy.s3.us-east-2.amazonaws.com/avatars/7.png",
+      },
     ],
     lastMessage: {
       id: "m7",

@@ -5,9 +5,12 @@ import * as React from 'react';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
+import CallScreen from '../screens/CallScreen';
+import CameraScreen from '../screens/CameraScreen';
+import ChatDetailScreen from '../screens/ChatDetailScreen';
 import ChatScreen from '../screens/ChatScreen';
-import TabOneScreen from '../screens/ChatScreen';
-import TabTwoScreen from '../screens/TabTwoScreen';
+import StatusScreen from '../screens/StatusScreen';
+import { tabScreenOptions } from '../screens/utils';
 import { CallsParamList, CameraParamList, ChatsParamList, StatusParamList, TopTabParamList, } from '../types';
 
 const TopTab = createMaterialTopTabNavigator<TopTabParamList>();
@@ -36,7 +39,7 @@ export default function TopTabNavigator() {
       />
       <TopTab.Screen
         name="Chats"
-        component={TabTwoNavigator}
+        component={ChatNavigator}
       />
       <TopTab.Screen
         name='Status'
@@ -59,15 +62,13 @@ function TabBarIcon(props: { name: React.ComponentProps<typeof Ionicons>['name']
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
 const CameraStack = createStackNavigator<CameraParamList>();
-const tabScreenOptions =
-  { headerTitle: () => null, headerStyle: { elevation: 0, shadowOpacity: 0 } }
 
 function CameraNavigator() {
   return (
     <CameraStack.Navigator>
       <CameraStack.Screen
         name='CameraScreen'
-        component={TabOneScreen}
+        component={CameraScreen}
         options={tabScreenOptions}
       />
     </CameraStack.Navigator>
@@ -76,7 +77,7 @@ function CameraNavigator() {
 
 const ChatsStack = createStackNavigator<ChatsParamList>();
 
-function TabTwoNavigator() {
+function ChatNavigator() {
   return (
     <ChatsStack.Navigator>
       <ChatsStack.Screen
@@ -94,7 +95,7 @@ function StatusNavigator() {
     <StatusStack.Navigator >
       <StatusStack.Screen
         name='StatusScreen'
-        component={TabOneScreen}
+        component={StatusScreen}
         options={tabScreenOptions}
       />
     </StatusStack.Navigator>
@@ -108,7 +109,7 @@ function CallNavigator() {
     <CallStack.Navigator>
       <CallStack.Screen
         name='CallsScreen'
-        component={TabTwoScreen}
+        component={CallScreen}
         options={tabScreenOptions}
       />
     </CallStack.Navigator>
