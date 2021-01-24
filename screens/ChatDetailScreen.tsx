@@ -8,7 +8,6 @@ const ChatDetailScreen = () => {
   const { params } = useRoute<ParamsType>()
   return (
     <View style={{ flex: 1 }}>
-      <Text>{`user id is: ${params.id}`}</Text>
     </View>
   )
 }
