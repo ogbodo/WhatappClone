@@ -9,13 +9,14 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingHorizontal: 10,
+    padding: 10,
+    width: "100%",
   },
-  leftContainer: {},
   middleContainer: {
     height: 60,
     justifyContent: "space-around",
-    alignSelf: "center",
+    flex: 1,
+    paddingHorizontal: 10,
   },
   userName: {
     fontWeight: "bold",
@@ -26,7 +27,7 @@ const styles = StyleSheet.create({
     color: "grey",
   },
   time: {
-    fontSize: 16,
+    fontSize: 14,
     color: "grey",
   },
 });

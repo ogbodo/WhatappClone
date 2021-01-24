@@ -1,3 +1,4 @@
+import { formatDistance, subDays } from 'date-fns'
 import React from 'react'
 import { View, Text, Image } from 'react-native'
 import { ChatRoomType } from '../../types'
@@ -10,17 +11,17 @@ type propsType = {
 const ChatListItem = (props: propsType) => {
   const { chatRoom } = props
   const user = chatRoom.users[1]
+  const now = new Date()
+  console.log(now);
+
   return (
     <View style={styles.container}>
-      <View style={styles.leftContainer}>
-        <Image source={{ uri: user.imageUri }} style={styles.avatar} resizeMode='contain' />
-      </View>
+      <Image source={{ uri: user.imageUri }} style={styles.avatar} resizeMode='contain' />
       <View style={styles.middleContainer}>
         <Text style={styles.userName}>{user.name}</Text>
-        <Text style={styles.lastMessage}>{chatRoom.lastMessage.content}</Text>
+        <Text numberOfLines={1} style={styles.lastMessage}>{chatRoom.lastMessage.content}</Text>
       </View>
-      {/* <Text>{chatRoom.lastMessage.createdAt}</Text> */}
-      <Text style={styles.time}>Yesterday</Text>
+      <Text style={styles.time}>{formatDistance(subDays(new Date(chatRoom.lastMessage.createdAt), now.getMonth()), now)}</Text>
     </View>
   )
 }
