@@ -5,7 +5,8 @@ import * as React from 'react';
 
 import Colors from '../constants/Colors';
 import useColorScheme from '../hooks/useColorScheme';
-import TabOneScreen from '../screens/TabOneScreen';
+import ChatScreen from '../screens/ChatScreen';
+import TabOneScreen from '../screens/ChatScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import { CallsParamList, CameraParamList, ChatsParamList, StatusParamList, TopTabParamList, } from '../types';
 
@@ -58,6 +59,8 @@ function TabBarIcon(props: { name: React.ComponentProps<typeof Ionicons>['name']
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
 const CameraStack = createStackNavigator<CameraParamList>();
+const tabScreenOptions =
+  { headerTitle: () => null, headerStyle: { elevation: 0, shadowOpacity: 0 } }
 
 function CameraNavigator() {
   return (
@@ -65,7 +68,7 @@ function CameraNavigator() {
       <CameraStack.Screen
         name='CameraScreen'
         component={TabOneScreen}
-        options={{ headerTitle: 'Camera Screen' }}
+        options={tabScreenOptions}
       />
     </CameraStack.Navigator>
   );
@@ -78,8 +81,8 @@ function TabTwoNavigator() {
     <ChatsStack.Navigator>
       <ChatsStack.Screen
         name='ChatsScreen'
-        component={TabTwoScreen}
-        options={{ headerTitle: 'Chats Screen' }}
+        component={ChatScreen}
+        options={tabScreenOptions}
       />
     </ChatsStack.Navigator>
   );
@@ -88,11 +91,11 @@ const StatusStack = createStackNavigator<StatusParamList>();
 
 function StatusNavigator() {
   return (
-    <StatusStack.Navigator>
+    <StatusStack.Navigator >
       <StatusStack.Screen
         name='StatusScreen'
         component={TabOneScreen}
-        options={{ headerTitle: 'Status Screen' }}
+        options={tabScreenOptions}
       />
     </StatusStack.Navigator>
   );
@@ -106,7 +109,7 @@ function CallNavigator() {
       <CallStack.Screen
         name='CallsScreen'
         component={TabTwoScreen}
-        options={{ headerTitle: 'Calls Screen' }}
+        options={tabScreenOptions}
       />
     </CallStack.Navigator>
   );

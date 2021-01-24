@@ -25,3 +25,22 @@ export type CallsParamList = {
   CallsScreen: undefined;
 };
 
+export type User = {
+  id: string;
+  name: string
+  imageUri: string
+};
+
+export type Message = {
+  id: string;
+  content: string
+  createdAt: string
+};
+
+export type ChatRoomType = {
+  id: string;
+  users: User[],
+  lastMessage: Message
+};
+
+
