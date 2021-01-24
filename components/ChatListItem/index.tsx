@@ -1,7 +1,7 @@
 import { useNavigation } from '@react-navigation/native'
 import { formatDistance, subDays } from 'date-fns'
 import React from 'react'
-import { Text, Pressable } from 'react-native'
+import { Text, Pressable, View, } from 'react-native'
 import { ChatRoomType } from '../../types'
 import AvatarNameTextContainer from '../AvatarNameTextContainer'
 import styles from './styles'
@@ -22,7 +22,9 @@ const ChatListItem = (props: propsType) => {
   return (
     <Pressable onPress={handleItemPress} style={styles.container}>
       <AvatarNameTextContainer imageUrl={user.imageUri} name={user.name} text={chatRoom.lastMessage.content} />
-      <Text style={styles.time}>{formatDistance(subDays(new Date(chatRoom.lastMessage.createdAt), now.getMonth()), now)}</Text>
+      <View style={{}}>
+        <Text style={styles.time}>{formatDistance(subDays(new Date(chatRoom.lastMessage.createdAt), 0), now)}</Text>
+      </View>
     </Pressable>
   )
 }

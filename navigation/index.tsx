@@ -5,7 +5,6 @@ import { ColorSchemeName, View, StyleSheet } from 'react-native';
 
 import { RootStackParamList } from '../types';
 import MainTabNavigator from './MainTabNavigator';
-import LinkingConfiguration from './LinkingConfiguration';
 import Colors from '../constants/Colors'
 import { Octicons, MaterialCommunityIcons, FontAwesome5 } from '@expo/vector-icons'
 import ChatDetailScreen from '../screens/ChatDetailScreen';
@@ -17,7 +16,6 @@ import { ChatRoomType } from '../types'
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
     <NavigationContainer
-      linking={LinkingConfiguration}
       theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <RootNavigator />
     </NavigationContainer>
@@ -89,8 +87,7 @@ function RootNavigator() {
                 />
               </View>
             ),
-            headerRightContainerStyle: {
-            },
+
 
           }
         }}
